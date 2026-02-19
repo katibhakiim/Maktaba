@@ -27,7 +27,16 @@ class BookRepository {
         Book(isbn = "978-0-13-595705-9", title = "The Pragmatic Programmer", nbPages = 320),
         Book(isbn = "978-0-20-163361-0", title = "Design Patterns", nbPages =395),
         Book(isbn = "978-0-13-475759-9", title = "Refactoring", nbPages = 448),
-        Book(isbn = "978-0-59-600712-6", title = "Head First Design Patterns", nbPages = 694)
+        Book(isbn = "978-0-59-600712-6", title = "Head First Design Patterns", nbPages = 694),
+       
+        /* new books */
+
+       Book(isbn = "978-0-26-204630-5", title = "Introduction to Algorithms", nbPages = 1312),
+       Book(isbn = "978-0-07-802215-9", title = "Database System Concepts", nbPages = 1344),
+       Book(isbn = "978-0-13-461099-3", title = "Artificial Intelligence: A Modern Approach", nbPages = 1168),
+       Book(isbn = "978-0-32-180433-4", title = "Android Programming: The Big Nerd Ranch Guide", nbPages = 688),
+       Book(isbn = "978-0-26-251087-5", title = "Structure and Interpretation of Computer Programs", nbPages = 688)
+
     )
 
     /**
