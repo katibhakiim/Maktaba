@@ -8,7 +8,13 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class CategoryViewModel : ViewModel() {
+/**
+ * ViewModel responsible for managing and exposing the category list state to the UI.
+ * 
+ * @property getCategoriesUseCase The business logic component for retrieving categories.
+ */
+
+class CategoryViewModel (private val getCategoriesUseCase: GetCategoriesUseCase ) : ViewModel() {
 
     private val _categories = MutableStateFlow<List<Category>>(emptyList())
     val categories: StateFlow<List<Category>> = _categories.asStateFlow()
@@ -20,16 +26,19 @@ class CategoryViewModel : ViewModel() {
         loadCategories()
     }
 
+    /**
+     * Orchestrates the loading of categories using the domain layer.
+     * Updates [isLoading] state to show/hide progress indicators in the UI.
+     */
+     
     private fun loadCategories() {
         viewModelScope.launch {
             _isLoading.value = true
             try {
-                // TODO: Use GetCategoriesUseCase instead of dummy data
-                // val categoryList = getCategoriesUseCase()
-                // _categories.value = categoryList
-                
-                // Dummy data for demonstration
-                _categories.value = emptyList()
+               // Fetch categories from the domain layer (GetCategoriesUseCase)
+                val categoryList = getCategoriesUseCase()
+               
+                _categories.value = categoryList
             } finally {
                 _isLoading.value = false
             }
