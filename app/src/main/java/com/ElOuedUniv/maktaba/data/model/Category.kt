@@ -16,12 +16,12 @@ package com.ElOuedUniv.maktaba.data.model
 data class Category(
 
 // * @property id Unuque  identifier for category.
- val id          : string ,
+ val id          : String ,
 
 // * @property name Display name shown to the user.
- val name        : string ,
+ val name        : String ,
 
 // * @property description detailed summary of the category`s purpose.
- val description : string
+ val description : String
 
 )
