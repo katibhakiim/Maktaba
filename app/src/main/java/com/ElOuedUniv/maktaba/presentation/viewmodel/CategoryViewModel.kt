@@ -1,5 +1,6 @@
 package com.ElOuedUniv.maktaba.presentation.viewmodel
 
+import com.ElOuedUniv.maktaba.domain.usecase.GetCategoriesUseCase
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ElOuedUniv.maktaba.data.model.Category
