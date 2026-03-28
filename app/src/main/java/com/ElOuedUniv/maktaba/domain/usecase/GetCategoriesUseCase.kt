@@ -1,5 +1,6 @@
 package com.ElOuedUniv.maktaba.domain.usecase
 
+import com.ElOuedUniv.maktaba.domain.usecase.GetCategoriesUseCase
 import com.ElOuedUniv.maktaba.data.model.Category
 import com.ElOuedUniv.maktaba.data.repository.CategoryRepository
 
