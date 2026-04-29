@@ -7,7 +7,8 @@ import javax.inject.Inject
 class AddBookUseCase @Inject constructor(
     private val bookRepository: BookRepository
 ) {
+    // Exercise 2: Call the repository to add the book
     operator fun invoke(book: Book) {
-        // TODO: Exercise 3 - Call the repository to add the book
+        bookRepository.addBook(book)
     }
 }
