@@ -32,6 +32,24 @@ class AddBookViewModel @Inject constructor(
                 addBook()
             }
         }
+        if (action !is AddBookUiAction.OnAddClick) {
+            validateInputs()
+        }
+    }
+
+    private fun validateInputs() {
+        val titleValid = _uiState.value.title.isNotBlank()
+        val isbnValid = _uiState.value.isbn.matches(Regex("\\d{13}"))
+        val nbPagesValid = _uiState.value.nbPages.toIntOrNull()?.let { it > 0 } ?: false
+
+        _uiState.update {
+            it.copy(
+                titleError = if (titleValid || it.title.isEmpty()) null else "Title cannot be empty",
+                isbnError = if (isbnValid || it.isbn.isEmpty()) null else "ISBN must be exactly 13 digits",
+                nbPagesError = if (nbPagesValid || it.nbPages.isEmpty()) null else "Pages must be a positive number",
+                isFormValid = titleValid && isbnValid && nbPagesValid
+            )
+        }
     }
 
     private fun addBook() {
